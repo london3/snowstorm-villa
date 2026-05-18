@@ -686,6 +686,7 @@ function init(){
   $('modalCloseBtn').onclick = () => $('modal').classList.add('hidden');
   $('nextBtn').onclick    = onNext;
 
+  document.body.classList.add('on-title');
   refreshContinueButton();
 }
 
@@ -697,6 +698,7 @@ function refreshContinueButton(){
 function onNewGame(){
   $('title-screen').classList.add('hidden');
   $('intro').classList.remove('hidden');
+  document.body.classList.remove('on-title');
   setTimeout(() => $('playerNameInput').focus(), 60);
 }
 
@@ -715,6 +717,7 @@ function enterGame(){
   $('saveBtn').classList.remove('hidden');
   $('loadBtn').classList.remove('hidden');
   $('restartBtn').classList.remove('hidden');
+  document.body.classList.remove('on-title');
   ensureAudio();
   render();
 }
@@ -731,6 +734,7 @@ function onRestart(){
   $('restartBtn').classList.add('hidden');
   $('title-screen').classList.remove('hidden');
   $('playerNameInput').value = '';
+  document.body.classList.add('on-title');
   refreshContinueButton();
 }
 

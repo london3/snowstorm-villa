@@ -53,10 +53,35 @@ h1 .sub{display:block;font-size:0.7rem;color:var(--muted);font-weight:normal;mar
 .hidden{display:none !important}
 
 /* タイトル */
-#title-screen{text-align:center;padding:44px 28px}
-#title-screen .lead{font-size:1.05rem;line-height:1.9;margin:0 0 28px;color:#d6d6e0}
-#title-screen .hint{font-size:0.85rem;color:var(--muted);margin-top:18px}
+.title-screen{
+  text-align:center;
+  padding:0;
+  overflow:hidden;
+}
+.title-img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:12px 12px 0 0;
+  /* 雪っぽいゆっくりとしたフェード演出 */
+  animation:titleAppear 1.4s ease;
+}
+@keyframes titleAppear{
+  from{opacity:0;transform:scale(1.04)}
+  to{opacity:1;transform:scale(1)}
+}
+.title-body{
+  padding:24px 28px 32px;
+  background:linear-gradient(180deg,rgba(8,8,18,0.92),rgba(8,8,18,1));
+  border-top:1px solid rgba(181,143,222,0.18);
+}
+.title-screen .lead{font-size:1.02rem;line-height:1.85;margin:0 0 22px;color:#d6d6e0}
+.title-screen .hint{font-size:0.82rem;color:var(--muted);margin-top:16px}
 .title-buttons{display:flex;flex-direction:column;gap:12px;max-width:280px;margin:0 auto}
+
+/* タイトル画面表示中はヘッダーのタイトル文字を控えめにする（画像にタイトルがあるため） */
+body.on-title h1{opacity:0.35;font-size:0.9rem}
+body.on-title h1 .sub{display:none}
 
 .big-btn{
   padding:14px 24px;background:linear-gradient(180deg,#2a2138,#1a1626);
