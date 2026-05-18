@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>雪嵐の山荘 ~ A Night Without Tomorrow ~</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1 id="title">雪嵐の山荘 <span class="sub">~ A Night Without Tomorrow ~</span></h1>
+      <div id="controls">
+        <button id="saveBtn" class="hidden">セーブ</button>
+        <button id="loadBtn" class="hidden">ロード</button>
+        <button id="restartBtn" class="hidden">最初から</button>
+        <button id="muteBtn">♪ ON</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- タイトル画面 -->
+      <div id="title-screen" class="panel">
+        <p class="lead">深い雪に閉ざされた山荘で、一夜の悲劇が静かに幕を開ける——。<br/>
+        あなたの選択が、登場人物たちの運命を決める。</p>
+        <div class="title-buttons">
+          <button id="newGameBtn" class="big-btn">新しく始める</button>
+          <button id="continueBtn" class="big-btn">続きから</button>
+        </div>
+        <p class="hint">所要時間: 約20分／ハッピーエンドとバッドエンドあり</p>
+      </div>
+
+      <!-- 名前入力画面 -->
+      <div id="intro" class="panel hidden">
+        <label>主人公の名前を入力してください</label>
+        <input id="playerNameInput" placeholder="例：拓也" maxlength="12" />
+        <button id="startBtn" class="big-btn">物語をはじめる</button>
+      </div>
+
+      <!-- 本編シーン -->
+      <div id="scene" class="panel hidden">
+        <div id="scene-meta">
+          <span id="chapter"></span>
+        </div>
+        <div id="text"></div>
+        <div id="choices"></div>
+        <button id="nextBtn" class="next-btn hidden">▽ 続き</button>
+      </div>
+
+      <!-- セーブ／ロードモーダル -->
+      <div id="modal" class="modal hidden">
+        <div class="modal-inner">
+          <h2 id="modal-title">セーブ</h2>
+          <div id="slot-list"></div>
+          <button id="modalCloseBtn">閉じる</button>
+        </div>
+      </div>
+
+      <div id="footer">
+        <div id="status"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
