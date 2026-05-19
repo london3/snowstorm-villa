@@ -746,6 +746,10 @@ function render(){
   $('chapter').textContent = scene.chapter || '';
   setMood(scene.mood || 'calm');
 
+  // エンディング画像はデフォルトで非表示。renderEnding で必要なら表示する
+  $('ending-img').classList.add('hidden');
+  $('scene').classList.remove('ending-happy','ending-bad');
+
   const totalPages = scene.pages.length;
   const idx = Math.min(state.page, totalPages - 1);
   $('text').textContent = fillName(scene.pages[idx]);
@@ -792,8 +796,13 @@ function render(){
 }
 
 function renderEnding(kind){
-  $('scene').classList.remove('ending-happy','ending-bad');
   $('scene').classList.add(kind === 'happy' ? 'ending-happy' : 'ending-bad');
+
+  // エンディング用イラストを表示
+  const $img = $('ending-img');
+  $img.src = kind === 'happy' ? 'assets/end-happy.png' : 'assets/end-bad.png';
+  $img.alt = kind === 'happy' ? 'TRUE END' : 'BAD END';
+  $img.classList.remove('hidden');
 
   const $choices = $('choices');
   const restartBtn = document.createElement('button');

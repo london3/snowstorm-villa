@@ -191,6 +191,26 @@ body.shake{animation:shake 0.4s}
 .ending-happy #text{color:#c8e7c8}
 .ending-bad #text{color:#e9b8b8}
 
+.ending-img{
+  display:block;
+  width:100%;
+  height:auto;
+  margin:0 0 20px;
+  border-radius:8px;
+  box-shadow:0 12px 36px rgba(0,0,0,0.6);
+  animation:endingAppear 2.2s ease;
+}
+@keyframes endingAppear{
+  0%{opacity:0;transform:scale(1.03)}
+  100%{opacity:1;transform:scale(1)}
+}
+.ending-happy .ending-img{
+  box-shadow:0 12px 36px rgba(255,200,140,0.18), 0 4px 10px rgba(0,0,0,0.5);
+}
+.ending-bad .ending-img{
+  box-shadow:0 12px 36px rgba(180,40,40,0.25), 0 4px 10px rgba(0,0,0,0.6);
+}
+
 @media (max-width:480px){
   #app{padding:16px}
   .panel{padding:20px}
